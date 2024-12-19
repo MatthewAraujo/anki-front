@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidateTag } from "next/cache";
 
 
 export async function createUserAction(state: any, formData: FormData) {
@@ -33,7 +32,6 @@ export async function createUserAction(state: any, formData: FormData) {
     method: "POST",
   })
 
-  console.log(response2);
 
   if (!response2.ok) {
     console.error(await response2.text());
@@ -41,10 +39,7 @@ export async function createUserAction(state: any, formData: FormData) {
   }
 
   const token = await response2.json();
-  console.log(token);
 
-
-  revalidateTag("user");
 
   return { success: true, token };
 }
