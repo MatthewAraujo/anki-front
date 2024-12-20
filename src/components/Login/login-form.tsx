@@ -10,14 +10,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useActionState } from "react";
 import { loginUserAction } from "./login.action";
-import { toast } from "sonner";
 import { redirect } from "next/navigation";
-import { setAuthCookie } from "@/utils/auth"; // Importa as funções de cookies
+import { setAuthCookie } from "@/utils/auth";
 import Link from "next/link";
+import { toast } from "@/hooks/use-toast";
 import { FormField } from "../FormField";
+import { Label } from "@radix-ui/react-label";
 
 export function LoginForm({
   className,
@@ -34,12 +34,17 @@ export function LoginForm({
 
   const handleToast = () => {
     if (state?.error) {
-      toast.error(state.error);
+      toast({
+        title: "Erro ao logar",
+        description: state.error,
+      })
     }
-
     if (state?.success && state?.token) {
       setAuthCookie("userToken", state.token, 7);
-      toast.success("Logado com sucesso");
+      toast({
+        title: "Logado com sucesso",
+        description: "Você foi logado com sucesso",
+      })
       redirect("/");
     }
   };

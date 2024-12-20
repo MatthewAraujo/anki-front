@@ -6,13 +6,13 @@ const navLinks = [
     href: "/",
   },
   {
-    name: "projects",
-    href: "/projects",
+    name: "anki",
+    href: "/anki",
   },
-  {
-    name: "blog",
-    href: "/blog",
-  },
+  // {
+  //   name: "blog",
+  //   href: "/blog",
+  // },
   // {
   //   name: "contact",
   //   href: "/contact",

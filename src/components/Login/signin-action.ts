@@ -38,7 +38,7 @@ export async function createUserAction(state: any, formData: FormData) {
     return { error: "Failed to login" };
   }
 
-  const token = await response2.json();
+  const { token } = await response2.json();
 
 
   return { success: true, token };
