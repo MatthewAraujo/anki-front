@@ -1,21 +1,14 @@
-import { Button } from "@/components/ui/button";
+import { Features } from "@/components/Features";
+import { Hero } from "@/components/Hero";
 import { Card } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100">
+    <div className="min-h-screen mx-auto">
 
-      < section className="text-center py-20 bg-gradient-to-r from-teal-400 to-blue-500 text-white" >
-        <h1 className="text-4xl font-extrabold">Transforme Seu Aprendizado</h1>
-        <p className="mt-4 text-lg">
-          Com nossa IA, crie cartões Anki de forma rápida e inteligente.
-        </p>
-        <Button className="mt-6 px-6 py-3 bg-white text-blue-500">
-          Comece Agora
-        </Button>
-      </section >
-
-      < section id="about" className="py-16 container" >
+      <Hero />
+      <Features />
+      <section id="about" className="py-16 container" >
         <h2 className="text-2xl font-bold text-gray-800 text-center">
           Por que usar o Anki AI Generator?
         </h2>
