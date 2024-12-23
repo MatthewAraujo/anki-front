@@ -29,7 +29,7 @@ export default function Header() {
   const loggedIn = isUserAuthenticated();
   return (
     <header className="sticky top-0 z-50 bg-background/75 py-6 backdrop-blur-sm">
-      <nav className="  flex items-center justify-between">
+      <nav className="flex items-center justify-between">
         <Link className="font-bold text-xl" href="/">
           Flash Cards
         </Link>
