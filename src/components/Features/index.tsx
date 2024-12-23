@@ -1,40 +1,62 @@
-const cards = [
+import { CheckIcon } from "lucide-react";
+import { Button } from "../ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../ui/card";
+import Image from "next/image";
+
+interface Card {
+  title: string;
+  src: string;
+  description: string;
+}
+
+const cards: Card[] = [
   {
-    title: 'AI-Powered Tools',
-    description: 'Unlock your academic potencial with the abilitry to create, learn, and share high quality content with out suite of AI-Powered tools.',
+    title: "Transforme Seus Estudos",
+    src: "/images/ai-powered-tools.svg",
+    description: "Adicione o seu documento"
   },
   {
-    title: 'Long-Term Retention',
-    description: 'Unlock your academic potencial with the abilitry to create, learn, and share high quality content with out suite of AI-Powered tools.',
+    title: "Aprenda em Apenas 2 Passos",
+    src: "/images/long-term-retention.svg",
+    description: "Responda as suas perguntas"
   },
   {
-    title: 'Deep Learning',
-    description: 'Unlock your academic potencial with the abilitry to create, learn, and share high quality content with out suite of AI-Powered tools.',
+    title: "Retenção de Longo Prazo",
+    src: "/images/deep-learning.svg",
+    description: "Aprenda e refaça os seus cards quantas vezes quiser"
   },
-]
+];
 
 export function Features() {
   return (
     <section id="features" className="container py-20 text-center">
       <div className="container flex flex-col gap-8">
         <div className="flex flex-col gap-6 justify-center items-center">
-          <div className="flex flex-col gap-3 w-3/4">
-            <h2 className="text-4xl font-semibold">Depp Learning and Long-Term Retention</h2>
+          <div className="flex flex-col gap-3 md:w-3/4">
+            <h2 className="text-4xl font-semibold">Estudar Nunca Foi Tão Fácil</h2>
             <p className="text-lg text-slate-500 text-justify">
-              Unlock your academic potencial with the ability to create, learn,
-              and share high quality content with out suite of AI-Powered tools.
+              Descubra uma nova forma de aprender com nossos flashcards inteligentes.
+              Em apenas dois passos, você transforma qualquer documento em um material
+              de estudo eficiente e personalizado.
             </p>
           </div>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {cards.map((card, id) => (
-            <div key={id} className="p-6 bg-white rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-teal-600">{card.title}</h3>
-              <p className="mt-2 text-sm text-gray-600">{card.description}</p>
-            </div>
-          ))}
+          {
+            cards.map((plan, id) => (
+              <Card key={id} className="text-start px-4">
+                <CardHeader>
+                  <Image width={428} height={428} src={plan.src} alt={plan.title} className="w-24 h-24" />
+                </CardHeader>
+                <CardDescription className="flex flex-col gap-2 justify-start text-justify">
+                  <span className="font-semibold text-black">{plan.title}</span>
+                  {plan.description}
+                </CardDescription>
+              </Card>
+            ))
+          }
         </div>
       </div>
-    </section>
+    </section >
   );
 }

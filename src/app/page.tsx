@@ -1,5 +1,6 @@
 import { Features } from "@/components/Features";
 import { Hero } from "@/components/Hero";
+import { PricingSectionCards } from "@/components/Pricing";
 import { Card } from "@/components/ui/card";
 
 export default function Home() {
@@ -8,37 +9,8 @@ export default function Home() {
 
       <Hero />
       <Features />
-      <section id="about" className="py-16 container" >
-        <h2 className="text-2xl font-bold text-gray-800 text-center">
-          Por que usar o Anki AI Generator?
-        </h2>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="text-center p-6">
-            <h3 className="text-lg font-semibold text-teal-600">
-              Automatização
-            </h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Criação de cartões sem esforço.
-            </p>
-          </Card>
-          <Card className="text-center p-6">
-            <h3 className="text-lg font-semibold text-teal-600">
-              Resumos Inteligentes
-            </h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Obtenha o que realmente importa.
-            </p>
-          </Card>
-          <Card className="text-center p-6">
-            <h3 className="text-lg font-semibold text-teal-600">
-              Economia de Tempo
-            </h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Foco no que é importante: aprender!
-            </p>
-          </Card>
-        </div>
-      </section >
+      <PricingSectionCards />
+
 
       < section id="how-it-works" className="py-16 bg-gray-50" >
         <h2 className="text-2xl font-bold text-gray-800 text-center">

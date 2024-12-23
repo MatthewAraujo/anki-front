@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { AppSidebar } from "./Sidebar";
 import { SidebarTrigger } from "../ui/sidebar";
-
-
-const navLinks = [
+import { isUserAuthenticated } from "@/utils/auth";
+export const navLinks = [
   {
     name: "Explore",
     href: "/anki",
@@ -28,13 +26,14 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const loggedIn = isUserAuthenticated();
   return (
     <header className="sticky top-0 z-50 bg-background/75 py-6 backdrop-blur-sm">
-      <nav className="hidden  items-center justify-between">
+      <nav className="  flex items-center justify-between">
         <Link className="font-bold text-xl" href="/">
           Flash Cards
         </Link>
-        <ul className="flex gap-4 ">
+        <ul className="hidden sm:flex gap-4 ">
           {navLinks.map((nav, id) => (
             <li key={id} className="link">
 
@@ -57,18 +56,27 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <div className="flex gap-0 sm:gap-4">
-          <Button variant="link">
-            <Link href="/login">Login </Link>
-          </Button>
-          <Button >
-            <Link href="/signin">Sign Up</Link>
-          </Button>
+        <div className="hidden  sm:flex gap-0 sm:gap-4">
+          {
+            loggedIn ? (
+              <>
+                <Button>
+                  <Link href="/signin">Sign Up</Link>
+                </Button>
+                <Button variant="link">
+                  <Link href="/login">Login </Link>
+                </Button></>
+            ) : (
+              <Button>
+                <Link href="/dashboard">Dashboard</Link>
+              </Button>
+
+            )
+          }
         </div>
-      </nav>
-      <div >
-        <SidebarTrigger />
-      </div>
-    </header>
+        <SidebarTrigger className="sm:hidden" />
+      </nav >
+
+    </header >
   );
 }

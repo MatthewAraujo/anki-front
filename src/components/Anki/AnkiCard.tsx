@@ -36,7 +36,7 @@ export function AnkiCard({ anki }: AnkiCardProps) {
   };
 
   return (
-    <div className="mx-auto h-full max-w-2xl w-full space-y-8 pt-10">
+    <div className="">
       <Card>
         <CardHeader>
           <CardTitle>Question {anki.id % 10 === 0 ? 10 : anki.id % 10}</CardTitle>

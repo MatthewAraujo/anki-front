@@ -32,15 +32,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} mx-auto flex min-h-screen max-w-full flex-col px-8 font-sans antialiased bg-gradient-to-b from-white to-gray-100`}
       >
-        <SidebarProvider>
-          <Header />
-          {children}
-          <Footer />
-          <Toaster />
+        <SidebarProvider >
+          <AppSidebar />
+          <main className="mx-auto flex flex-col flex-1 w-full max-w-full">
+            <Header />
+            {children}
+          </main>
         </SidebarProvider>
-
+        <Toaster />
+        <Footer />
       </body>
 
-    </html>
+    </html >
   );
 }
