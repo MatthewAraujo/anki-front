@@ -1,13 +1,27 @@
+
 import {
   Card,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { GetAnkisByUserId } from "@/utils/api";
+import { isUserAuthenticated } from "@/utils/auth";
 import { AnkiMinumum } from "@/utils/types";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+// import { useRouter } from "next/navigation";
+// import { useEffect } from "react";
+
 
 export default async function Page() {
+  // const router = useRouter();
+
+  // useEffect(() => {
+  //   if (!isUserAuthenticated()) {
+  //     router.push('/login');
+  //   }
+  // }, []);
 
   try {
     const response = await GetAnkisByUserId();
